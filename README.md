@@ -38,7 +38,29 @@ _Let's talk About the Working with Advantages and Disadvantages of this Method._
 - `GIT_EMAIL` : Put your Github Email. _Like example.com@gmail.com_
 - `GIT_TOKEN` : Put your `Personal Access Github Token` and Give All Permission, it will use your account to Run the Loop Server . _How to Generate:_ [Click Here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token)
 - `BOT_REPO` : Put your Forked Repo, Removing **https://** from Beginning of the URL. _Like **github.com/5MysterySD/Tele-LeechX**_
-- `CONFIG_FILE_URL` : Gist URL contains All Required Vars for Tele-LeechX Bot Repo, Fill it, Generate Guide, Join Support Group .
+- `CONFIG_FILE_URL` : Gist URL contains All Required Vars for Tele-LeechX Bot Repo, Fill it and Remove Commit ID.
+- > Note : Same Variable Used in Tele-LeechX Repo : CONFIG_FILE_URL
+
+## FAQ 🗒
+
+### How to Update Variable ??
+1. Change the Required Variable in Gist URL from gist.github.com
+2. Make Sure your Gist URL Commit ID is Removed when Putting in Secret of this Repo, If not Put it Again.
+3. Wait for the Loop Workflow Run, It will Automatically Update the config.env
+
+### How to Restart your Bot ??
+1. Go to Actions Tab and `Cancel the Workflow` Run
+2. Then Again, Select Workflow and Run the Workflow to Restart your Bot
+> Use this If You Need force Update your CONFIG_FILE_URL Variables 
+
+### How to Check Logs if Bot Crashed ??
+- Restart the Bot [Above Guide](https://github.com/5MysterySD/Tele-VPS/edit/Tele-VPS/README.md#how-to-restart-your-bot-) and Open the Workflow Run Logs and Check Simultaneously where is the Crash Error !!
+
+### What to Do if Storage Exceeded ??
+- Use /renewme Command and Clean the Storage and Use Again, But Can't Use more than 30 GB Links or Torrents
+
+### Other FAQ and Instant Help ??
+- Join Support Group and Ask your Question !!
 
 ---
 
@@ -46,11 +68,21 @@ _Let's talk About the Working with Advantages and Disadvantages of this Method._
 
 | ℹ️ Required for More than 1 Bot Deployment !!
 | ---
+
+**METHOD I**
+
 1. _Import this Repo_ [ If Using Mobile Change to Desktop Mode ]
 2. _Give a Nice Name_
 3. _Turn on Actions from Settings_
 4. _Deploy as stated Above_
 
+**METHOD II** _(Recommended)_
+
+1. _Fork this Repo_ [ If Using Mobile Change to Desktop Mode ]
+2. _Make `New Repository` and Import this Template_
+3. _Give a Nice Name_
+4. _Turn on Actions from Settings_
+5. _Deploy as stated Above_
 ---
 
 ## 🏅 Credits & References 🗒
