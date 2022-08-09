@@ -1,4 +1,4 @@
-name: "Tele-VPS : Initialize"
+name: "Helios-1 : Deploy to Actions"
 
 on:
   push:
@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-       - name: "🛃 Checkout Tele-Linux 🛃"
+       - name: "🛃 Checkout Helios-1 🛃"
          uses: actions/checkout@main
        
        - name: "⛔️ Cancel Duplicate Runs ⛔️"
@@ -16,7 +16,7 @@ jobs:
          with:
             all_but_latest: true
             access_token: ${{ github.token }}
-       - name: "📈 Initialize Tele-Linux 📉"
+       - name: "📈 Initialize Helios-1 📉"
          continue-on-error: true
          run: |
            git config --global user.name ${{ secrets.GIT_NAME }}
@@ -26,20 +26,20 @@ jobs:
        - name: "🧬 Clone Repository 🧬"
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.BOT_REPO }} telerepo
-       - name: "Running Tele-VPS Server 🏃‍♂️💨💨"
+           git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.BOT_REPO }} Helios-1
+       - name: "Running Helios-1 Server 🏃‍♂️💨💨"
          timeout-minutes: 350
          continue-on-error: true
          run: |
-           cd telerepo
-           docker build . -t tele-vps
-           docker run --env CONFIG_FILE_URL=${{ secrets.CONFIG_FILE_URL }} tele-vps
-       - name: "♻️ Re-Run Tele-VPS Server ♻️"
+           cd Helios-1
+           docker build . -t Helios-1
+           docker run --env CONFIG_FILE_URL=${{ secrets.CONFIG_FILE_URL }} Helios-1
+       - name: "♻️ Re-Run Helios-1 Server ♻️"
          continue-on-error: true
          run: |
               git clone https://github.com/${GITHUB_REPOSITORY} loop
               cd loop || exit 1
               echo $(date -u +%T%P) >> loop.txt
               git add loop.txt
-              git commit -m "Tele-VPS : Re-Run $(date -u +%D-%T%P)"
-              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:Tele-VPS
+              git commit -m "Helios-1 : Re-Run $(date -u +%D-%T%P)"
+              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:Helios-1
